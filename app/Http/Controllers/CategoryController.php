@@ -70,7 +70,19 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $request->validate([
+            'cat_title' =>'required|max:255',
+            'cat_description' =>'required|max:255',
+        ]);
+
+        $cat = $category;
+        $cat->cat_title = $request->cat_title;
+        $cat->cat_slug = Str::slug($request->cat_title);
+        $cat->cat_description = $request->cat_description;
+        $cat->parent_id = $request->parent_id;
+        $cat->save();
+
+        return redirect()->route('category.index')->with('success','Category Updated successfully.');
     }
 
     /**

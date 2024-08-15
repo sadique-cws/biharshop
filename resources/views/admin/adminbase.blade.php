@@ -24,8 +24,8 @@
             <div class="flex flex-col">
                 <a href="{{route('admin.dashboard')}}" class="text-slate-800 px-3 py-2 hover:bg-slate-300">Dashboard</a>
                 <a href="{{route('category.index')}}" class="text-slate-800 px-3 py-2 hover:bg-slate-300">Manage Categories</a>
-                <a href="" class="text-slate-800 px-3 py-2 hover:bg-slate-300">Manage Products</a>
-                <a href="" class="text-slate-800 px-3 py-2 hover:bg-slate-300">Insert Products</a>
+                <a href="{{route('products.index')}}" class="text-slate-800 px-3 py-2 hover:bg-slate-300">Manage Products</a>
+                <a href="{{route('products.create')}}" class="text-slate-800 px-3 py-2 hover:bg-slate-300">Insert Products</a>
                 <a href="" class="text-slate-800 px-3 py-2 hover:bg-slate-300">Manage Orders</a>
                 <a href="" class="text-slate-800 px-3 py-2 hover:bg-slate-300">Manage Payments</a>
                 <a href="" class="text-slate-800 px-3 py-2 hover:bg-slate-300">Manage Static Page</a>
@@ -43,6 +43,6 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
-
+    @yield('js')
 </body>
 </html>

@@ -2,17 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Str;
 class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
-    {
-        //
+    {   
+        $products = Product::all();
+        return view("admin.manageProducts")->with('products',$products);
     }
 
     /**
@@ -20,7 +23,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::where('parent_id',null)->get();
+        return view("admin.InsertProduct")->with('categories',$categories);
     }
 
     /**
@@ -28,7 +32,31 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'name' =>'required|max:255',
+            'description' =>'required',
+            'price' =>'required|numeric',
+            'discount_price' =>'required|numeric',
+            'sku' =>'required',
+            'brand' =>'required',
+            'quantity' =>'required|numeric',
+            'category_id' =>'required',
+            'featured_image' =>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'discount' => 'nullable|numeric',
+        ]);
+
+        // image work
+        $image = $request->file('featured_image');
+        $imageName = time().'.'.$image->getClientOriginalExtension();
+        $image->move(public_path('images'), $imageName);
+
+        $data['slug'] = Str::slug($data['name']);
+        $data['featured_image'] = $imageName;
+
+        Product::create($data);
+        return redirect()->route('products.index')->with('success',"Product created successfully");
+
+        
     }
 
     /**
