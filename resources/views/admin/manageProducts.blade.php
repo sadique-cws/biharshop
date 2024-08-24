@@ -80,7 +80,7 @@
                     {{$pro->brand}}
                 </td>
                 <td class="px-6 py-4">
-                    {{$pro->category_id}}
+                    {{$pro->category->cat_title}}
                 </td>
                 <td class="px-6 py-4">
                     <span>{{$pro->discount_price}}</span>

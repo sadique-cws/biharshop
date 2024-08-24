@@ -54,9 +54,7 @@ class ProductController extends Controller
         $data['featured_image'] = $imageName;
 
         Product::create($data);
-        return redirect()->route('products.index')->with('success',"Product created successfully");
-
-        
+        return redirect()->route('products.index')->with('success',"Product created successfully");   
     }
 
     /**

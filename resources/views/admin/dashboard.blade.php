@@ -8,7 +8,7 @@
     <div class="flex flex-1">
         <h2 class="border-l-4 border-orange-600 pl-2 text-xl">Statics</h2>
     </div>
-    <div class="grid grid-cols-4 gap-5">
+    <div class="grid grid-cols-3 gap-5">
         <div class="flex flex-col items-center justify-center bg-slate-100 px-5 py-3 rounded-2xl">
             <dt class="mb-2 text-3xl font-extrabold">73M+</dt>
             <dd class="text-gray-500 dark:text-gray-400">Developers</dd>
@@ -21,10 +21,7 @@
             <dt class="mb-2 text-3xl font-extrabold">73M+</dt>
             <dd class="text-gray-500 dark:text-gray-400">Developers</dd>
         </div>
-        <div class="flex flex-col items-center justify-center bg-slate-100 px-5 py-3 rounded-2xl">
-            <dt class="mb-2 text-3xl font-extrabold">73M+</dt>
-            <dd class="text-gray-500 dark:text-gray-400">Developers</dd>
-        </div>
+       
     </div>
 
     <div class="flex flex-1">
