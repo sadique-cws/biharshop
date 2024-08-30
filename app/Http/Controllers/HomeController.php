@@ -17,4 +17,9 @@ class HomeController extends Controller
         $data['product'] = Product::where('slug',$slug)->first();
         return view("viewProduct",$data);
     }
+
+    public function filter($slug){
+        $data['category'] = Category::where('cat_slug',$slug)->first();
+        return view('filter', $data);
+    }
 }

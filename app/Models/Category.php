@@ -11,6 +11,7 @@ class Category extends Model
 {
     use HasFactory;
 
+
     public function parent(): HasOne
     {
         return $this->
@@ -20,5 +21,10 @@ class Category extends Model
     public function children() : HasMany
     {
         return $this->hasMany(Category::class, 'parent_id');
+    }
+
+    public function products() : HasMany
+    {
+        return $this->hasMany(Product::class, 'category_id');
     }
 }
